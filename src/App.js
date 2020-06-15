@@ -11,6 +11,17 @@ export default class App extends Component {
 
    // after render
    render() {
+      const renderInputs = (num) => {
+         const inputs = [];
+         for (let i = 0; i < num; i++) {
+            //render some JSX
+            inputs.push(
+               <input type="text" className="form-control inline-action" />
+            );
+         }
+         return inputs;
+      };
+
       return (
          <div className="container">
             <div className="row">
@@ -24,14 +35,8 @@ export default class App extends Component {
                            <code></code>
                         </pre>
                         <div className="actions float-right">
-                           <input
-                              type="text"
-                              className="form-control inline-action"
-                           />
-                           <input
-                              type="text"
-                              className="form-control inline-action"
-                           />
+                           {renderInputs(component.inputs)}
+
                            <button className="btn btn-primary inline-action">
                               Run
                            </button>
